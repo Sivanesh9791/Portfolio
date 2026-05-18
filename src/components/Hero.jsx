@@ -4,7 +4,7 @@ const STATS = [
   { value: '500+', label: 'Projects Completed' },
   { value: '500+', label: 'Satisfied Clients' },
   { value: '4.9★', label: 'Client Rating' },
-  { value: '5+',   label: 'Years Expertise' },
+  { value: '5+',   label: 'Years Experience' },
 ]
 
 const scrollTo = (id) => {
@@ -39,7 +39,7 @@ export default function Hero() {
         {/* Sub-heading */}
         <p className="hero__sub">
           From concept to launch, I build scalable, high-performance web
-          applications that drive real business results. E-commerce platforms,
+          applications that deliver real business results. E-commerce platforms,
           SaaS dashboards, REST APIs, and everything in between.
         </p>
 
@@ -53,7 +53,7 @@ export default function Hero() {
           </button>
           <button
             className="hero__btn hero__btn--ghost"
-            onClick={() => scrollTo('contact')}
+            onClick={() => window.open('https://www.fiverr.com/s/7YPQ7Pk', '_blank')}
           >
             Start Your Project
           </button>

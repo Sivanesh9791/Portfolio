@@ -5,21 +5,21 @@ const CONTACT_METHODS = [
   {
     icon: '📧',
     label: 'Email',
-    value: 'sivaneshkumar@email.com',
-    href: 'mailto:sivaneshkumar@email.com',
+    value: 'sivaneshkumar.dev@email.com',
+    href: 'mailto:sivaneshkumar.dev@email.com',
     external: false,
   },
   {
     icon: '🐙',
     label: 'GitHub',
-    value: 'github.com/sivaneshkumar',
-    href: 'https://github.com/sivaneshkumar',
+    value: ' github.com/Sivanesh9791',
+    href: 'https://github.com/Sivanesh9791',
     external: true,
   },
   {
     icon: '💼',
     label: 'LinkedIn',
-    value: 'linkedin.com/in/sivaneshkumar',
+    value: ' linkedin.com/in/sivaneshkumar',
     href: 'https://linkedin.com/in/sivaneshkumar',
     external: true,
   },
@@ -93,7 +93,7 @@ export default function Contact() {
 
         {/* Fiverr CTA */}
         <a
-          href="https://www.fiverr.com"
+          href="https://www.fiverr.com/s/7YPQ7Pk"
           target="_blank"
           rel="noopener noreferrer"
           className="contact__cta-fiverr"

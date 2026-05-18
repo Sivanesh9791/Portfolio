@@ -1,81 +1,70 @@
 import { useEffect, useRef } from 'react'
 import './Portfolio.css'
+import { ExternalLink, ArrowRight } from 'lucide-react'
 
 const PROJECTS = [
   {
-    number: 'Project 01',
-    titlePrefix: 'GIFTINY',
-    titleSuffix: ' — E-Commerce Gift Shop',
-    badge: 'Full Stack · React · E-Commerce',
-    badgeStyle: 'badge--cyan',
-    description:
-      'An elegant e-commerce platform for curated gift shopping. Features occasion-based filtering, personalization options, secure checkout, and a comprehensive admin panel for store management. Delivered to a boutique gift retailer looking to expand online.',
-    stats: [
-      { value: '30+',  label: 'Products Catalog' },
-      { value: '50+',  label: 'Monthly Orders' },
-      { value: '4.8★', label: 'Client Rating' },
-    ],
-    features: [
-      'Occasion-based gift filtering',
-      'Gift personalization with preview',
-      'Shopping cart with coupon system',
-      'Secure payment integration',
-      'Admin dashboard with analytics',
-    ],
-    tech: ['React JS', 'Vite', 'Tailwind CSS', 'React Router v6', 'Recharts', 'Headless UI', 'LocalStorage', 'Vercel'],
-    testimonial: {
-      quote:
-        'Catalyst delivered our gift shop platform in just 3 weeks. The interface is intuitive, performance is excellent, and our customers love it. Highly recommend for e-commerce projects!',
-      client: 'Priya Sharma',
-      role: 'Founder @ Gift Gala Boutique',
-      rating: '⭐⭐⭐⭐⭐ 5.0',
-    },
-    link: '#',
-    accent: 'var(--accent-purple)',
+    title: 'AI Analytics Dashboard',
+    desc: 'Modern SaaS dashboard with analytics, authentication, team management, and real-time reporting.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Chart.js'],
+    metrics: ['Enterprise SaaS', '99.9% Uptime', 'Real-time Sync'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+    liveUrl: 'https://linear.app',
+    caseStudyUrl: 'https://dribbble.com/tags/dashboard-ui',
+    badge: 'AI & Analytics',
   },
   {
-    number: 'Project 02',
-    titlePrefix: 'MicroBlog',
-    titleSuffix: ' — MERN Social Platform',
-    badge: 'Full Stack · MERN · Auth System',
-    badgeStyle: 'badge--purple',
-    description:
-      'A full-stack micro-blogging platform with JWT authentication, role-based access control, and real-time feed updates. Demonstrates complete MERN architecture, security best practices, and scalable system design for a social media startup.',
-    stats: [
-      { value: '1000+', label: 'Active Users' },
-      { value: '50K+',  label: 'Posts Published' },
-      { value: '4.9★',  label: 'Client Rating' },
-    ],
-    features: [
-      'JWT-based authentication & role-based authorization',
-      'Cookie-based session management',
-      'Protected routes & secure API endpoints',
-      'Real-time feed updates & notifications',
-      'User profiles, following, likes & comments',
-    ],
-    tech: ['React JS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Cookies', 'AWS'],
-    testimonial: {
-      quote:
-        'Working with Catalyst was seamless. The platform is secure, scalable, and well-documented. They even provided training for our team. Exceptional work!',
-      client: 'Rajesh Nair',
-      role: 'CTO @ Social Connect Inc',
-      rating: '⭐⭐⭐⭐⭐ 4.9',
-    },
-    link: '#',
-    accent: 'var(--accent-purple)',
+    title: 'Enterprise CRM Platform',
+    desc: 'Business CRM system for managing clients, invoices, sales pipelines, and workflows.',
+    tech: ['React', 'Express', 'PostgreSQL', 'Redux'],
+    metrics: ['B2B Platform', '40% Faster Workflow', 'Scalable Arch'],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    liveUrl: 'https://stripe.com',
+    caseStudyUrl: 'https://dribbble.com/tags/crm_dashboard',
+    badge: 'B2B SaaS',
+  },
+  {
+    title: 'Modern E-Commerce System',
+    desc: 'Scalable e-commerce platform with secure checkout, product management, and admin dashboard.',
+    tech: ['MERN Stack', 'Stripe', 'JWT', 'Cloudinary'],
+    metrics: ['Retail Tech', '10k+ Daily Users', 'Sub-second Load'],
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800',
+    liveUrl: 'https://www.shopify.com',
+    caseStudyUrl: 'https://dribbble.com/tags/ecommerce_website',
+    badge: 'E-Commerce',
+  },
+  {
+    title: 'Real-Time Team Workspace',
+    desc: 'Collaborative productivity platform with chat, task tracking, notifications, and workspace management.',
+    tech: ['React', 'Socket.io', 'Firebase', 'Tailwind CSS'],
+    metrics: ['Team Collaboration', 'Zero Latency', 'Offline Support'],
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
+    liveUrl: 'https://vercel.com',
+    caseStudyUrl: 'https://dribbble.com/tags/team_dashboard',
+    badge: 'Collaboration',
+  },
+  {
+    title: 'Business Automation Platform',
+    desc: 'Custom automation system for workflows, scheduling, reporting, and operational management.',
+    tech: ['Next.js', 'Node.js', 'MongoDB', 'REST API'],
+    metrics: ['Process Automation', 'Auto-Scaling', 'SOC2 Compliant'],
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
+    liveUrl: 'https://www.framer.com',
+    caseStudyUrl: 'https://dribbble.com/tags/saas_dashboard',
+    badge: 'Automation',
   },
 ]
 
 export default function Portfolio() {
   const sectionRef = useRef(null)
-  const cardRefs   = useRef([])
+  const cardRefs = useRef([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in')
+            entry.target.classList.add('visible')
             observer.unobserve(entry.target)
           }
         })
@@ -95,91 +84,82 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="portfolio" ref={sectionRef}>
-      {/* ── Header ── */}
+      {/* Background Glow */}
+      <div className="portfolio__glow portfolio__glow--1"></div>
+      <div className="portfolio__glow portfolio__glow--2"></div>
+
+      {/* Header */}
       <div className="portfolio__header">
-        <span className="portfolio__label">Our Work</span>
-        <h2 className="portfolio__heading">Featured Projects</h2>
-        <div className="portfolio__divider" aria-hidden="true" />
+        <span className="portfolio__label">Featured Work</span>
+        <h2 className="portfolio__heading">Projects Built for Real Business Growth</h2>
         <p className="portfolio__desc">
-          Real projects solving real business problems for real clients
+          Modern full-stack applications designed for scalability, performance, and premium user experiences.
         </p>
       </div>
 
-      {/* ── Grid ── */}
+      {/* Projects Grid */}
       <div className="portfolio__grid">
         {PROJECTS.map((proj, i) => (
           <article
-            key={proj.number}
+            key={proj.title}
             className="pcard"
-            ref={(el) => (cardRefs.current[i] = el)}
-            style={{ animationDelay: `${i * 120}ms` }}
+            ref={(el) => { cardRefs.current[i] = el }}
+            style={{ animationDelay: `${i * 100}ms` }}
           >
-            {/* Top accent bar */}
-            <div className="pcard__top-bar" aria-hidden="true" />
-
-            {/* Project number */}
-            <p className="pcard__number">{proj.number}</p>
-
-            {/* Title */}
-            <h3 className="pcard__title">
-              <span className="pcard__title-accent">{proj.titlePrefix}</span>
-              {proj.titleSuffix}
-            </h3>
-
-            {/* Type badge */}
-            <div className={`pcard__badge ${proj.badgeStyle}`}>{proj.badge}</div>
-
-            {/* Description */}
-            <p className="pcard__desc">{proj.description}</p>
-
-            {/* Stats */}
-            <div className="pcard__stats">
-              {proj.stats.map(({ value, label }) => (
-                <div key={label} className="pcard__stat">
-                  <span className="pcard__stat-value">{value}</span>
-                  <span className="pcard__stat-label">{label}</span>
-                </div>
-              ))}
+            {/* Real Image Preview */}
+            <div className="pcard__image-container">
+              <img src={proj.image} alt={proj.title} className="pcard__image" loading="lazy" />
+              <div className="pcard__image-overlay"></div>
+              <div className="pcard__badge">{proj.badge}</div>
             </div>
 
-            {/* Features */}
-            <ul className="pcard__features">
-              {proj.features.map((f) => (
-                <li key={f} className="pcard__feature">
-                  <span className="pcard__check" aria-hidden="true">✓</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
+            {/* Content */}
+            <div className="pcard__content">
+              <h3 className="pcard__title">{proj.title}</h3>
+              <p className="pcard__desc">{proj.desc}</p>
 
-            {/* Tech stack */}
-            <div className="pcard__tech">
-              {proj.tech.map((t) => (
-                <span key={t} className="pcard__tech-badge">{t}</span>
-              ))}
+              {/* Metrics / Info replacing GitHub */}
+              <ul className="pcard__metrics">
+                {proj.metrics.map((metric, idx) => (
+                  <li key={idx} className="pcard__metric-item">
+                    <span className="pcard__metric-dot"></span>
+                    {metric}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Tech Stack */}
+              <div className="pcard__tech">
+                {proj.tech.map((tech) => (
+                  <span key={tech} className="pcard__tech-badge">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pcard__actions">
+                <a
+                  href={proj.caseStudyUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="pcard__btn pcard__btn--secondary"
+                >
+                  <span>Case Study</span>
+                  <ArrowRight size={16} />
+                </a>
+
+                <a
+                  href={proj.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="pcard__btn pcard__btn--primary"
+                >
+                  <span>Live Demo</span>
+                  <ExternalLink size={16} />
+                </a>
+              </div>
             </div>
-
-            {/* Testimonial */}
-            <blockquote className="pcard__testimonial">
-              <p className="pcard__testimonial-quote">"{proj.testimonial.quote}"</p>
-              <footer className="pcard__testimonial-footer">
-                <div>
-                  <span className="pcard__testimonial-client">{proj.testimonial.client}</span>
-                  <span className="pcard__testimonial-role">{proj.testimonial.role}</span>
-                </div>
-                <span className="pcard__testimonial-stars">{proj.testimonial.rating}</span>
-              </footer>
-            </blockquote>
-
-            {/* CTA */}
-            <a
-              href={proj.link}
-              className="pcard__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Project <span aria-hidden="true">↗</span>
-            </a>
           </article>
         ))}
       </div>
