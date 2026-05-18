@@ -1,0 +1,233 @@
+/* =========================================================
+   About — Catalyst Portfolio
+   ========================================================= */
+
+/* ── Section wrapper ── */
+.about {
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================================
+   Fade-in base (applied to .about__animate elements)
+   ========================================================= */
+
+.about__animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.about__animate.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.about__header {
+  text-align: center;
+  max-width: 620px;
+  margin-bottom: 3.5rem;
+}
+
+.about__label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a78bfa;
+  margin-bottom: 0.75rem;
+}
+
+.about__heading {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #f0eeff;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.about__subheading {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #7c7a9a;
+  margin: 0 0 1.25rem;
+  line-height: 1.6;
+}
+
+.about__divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #6c63ff, #38bdf8);
+  border-radius: 999px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   Two-column body
+   ========================================================= */
+
+.about__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  width: 100%;
+  align-items: start;
+}
+
+/* =========================================================
+   Left — Bio
+   ========================================================= */
+
+.about__bio {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__para {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #c4c3d9;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+/* Philosophy block */
+.about__philosophy {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about__philosophy-heading {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #a78bfa;
+  margin: 0 0 0.5rem;
+}
+
+.about__philosophy-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #c4c3d9;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* CTA link */
+.about__cta {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #a78bfa;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: opacity 0.2s ease, gap 0.2s ease;
+}
+
+.about__cta::after {
+  content: '→';
+  font-weight: 400;
+}
+
+.about__cta:hover {
+  opacity: 0.75;
+  gap: 0.55rem;
+}
+
+/* =========================================================
+   Right — Credential cards
+   ========================================================= */
+
+.about__credentials {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Individual credential card */
+.cred-card {
+  background: #13131e;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.cred-card:hover {
+  border-color: rgba(108, 99, 255, 0.35);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.cred-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cred-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cred-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8b8aa8;
+}
+
+.cred-card__value {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #f0eeff;
+  line-height: 1.2;
+}
+
+.cred-card__desc {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #8b8aa8;
+  margin-top: 1px;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .about {
+    padding: 4rem 1.25rem;
+  }
+
+  .about__body {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about__heading {
+    font-size: 1.9rem;
+  }
+
+  .about__credentials {
+    grid-template-columns: 1fr;
+  }
+}

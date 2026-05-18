@@ -1,0 +1,237 @@
+/* =========================================================
+   Navbar — Catalyst Portfolio
+   ========================================================= */
+
+/* ── Base ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  height: 64px;
+
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ── Logo ── */
+.navbar__logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6c63ff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+  /* button reset */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ── Desktop navigation links ── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar__link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  /* button reset */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.navbar__link:hover {
+  color: #a78bfa;
+}
+
+/* ── Right side ── */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* ── CTA button ── */
+.navbar__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.2rem;
+  background: linear-gradient(135deg, #1dbf73, #18a064);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.navbar__cta:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* ── Hamburger ── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.navbar__hamburger:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.navbar__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+}
+
+/* Active (×) state — top bar rotates to \ */
+.navbar__hamburger.is-active .navbar__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+/* Middle bar fades out */
+.navbar__hamburger.is-active .navbar__bar:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+/* Bottom bar rotates to / */
+.navbar__hamburger.is-active .navbar__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile dropdown ── */
+.navbar__mobile-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 15, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0 1.5rem;
+  overflow: hidden;
+
+  /* Slide-down animation */
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              padding 0.3s ease;
+}
+
+.navbar__mobile-menu.is-open {
+  max-height: 420px;
+  opacity: 1;
+  pointer-events: auto;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.navbar__mobile-link {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  /* button reset */
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.navbar__mobile-link:last-of-type {
+  border-bottom: none;
+}
+
+.navbar__mobile-link:hover {
+  color: #a78bfa;
+  padding-left: 0.5rem;
+}
+
+.navbar__mobile-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(135deg, #1dbf73, #18a064);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  align-self: flex-start;
+}
+
+.navbar__mobile-cta:hover {
+  opacity: 0.85;
+}
+
+/* =========================================================
+   Responsive: Mobile (< 768px)
+   ========================================================= */
+@media (max-width: 767px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__cta {
+    display: none;          /* CTA shown in mobile menu instead */
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+}

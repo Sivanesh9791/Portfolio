@@ -1,0 +1,98 @@
+/* =========================================================
+   Footer — Catalyst Portfolio
+   ========================================================= */
+
+.footer {
+  text-align: center;
+  padding: 2.5rem 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: #0a0a0f;
+  color: #8b8aa8;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ── Social links ── */
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #8b8aa8;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer__social-link:hover {
+  color: #a78bfa;
+}
+
+/* ── Copyright text ── */
+.footer__text,
+.footer__copy {
+  margin: 0;
+}
+
+.footer__name {
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.footer__copy {
+  font-size: 0.75rem;
+  color: #5c5a7a;
+}
+
+/* ── Back to top button ── */
+.footer__top-btn {
+  margin-top: 0.25rem;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #8b8aa8;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.footer__top-btn:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  color: #a78bfa;
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .footer {
+    padding: 2rem 1.25rem;
+    font-size: 0.78rem;
+    gap: 0.6rem;
+  }
+
+  .footer__dot {
+    display: none;
+  }
+
+  .footer__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+  }
+}

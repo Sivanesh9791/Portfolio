@@ -1,0 +1,366 @@
+/* =========================================================
+   Portfolio — Catalyst Portfolio
+   ========================================================= */
+
+:root {
+  --accent-purple: #a78bfa;
+  --accent-cyan:   #38bdf8;
+}
+
+/* ── Section wrapper ── */
+.portfolio {
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.portfolio__header {
+  text-align: center;
+  max-width: 620px;
+  margin-bottom: 3.5rem;
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.portfolio__header.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio__label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a78bfa;
+  margin-bottom: 0.75rem;
+}
+
+.portfolio__heading {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #f0eeff;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.portfolio__divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #6c63ff, #38bdf8);
+  border-radius: 999px;
+  margin: 0 auto 1.25rem;
+}
+
+.portfolio__desc {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #7c7a9a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =========================================================
+   Grid
+   ========================================================= */
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* =========================================================
+   Project Card (pcard)
+   ========================================================= */
+
+.pcard {
+  position: relative;
+  overflow: hidden;
+  background: #13131e;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  /* Fade-in base */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.55s ease, transform 0.55s ease,
+              border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pcard.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pcard:hover {
+  border-color: rgba(108, 99, 255, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Top gradient bar */
+.pcard__top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6c63ff, #38bdf8);
+  border-radius: 18px 18px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pcard:hover .pcard__top-bar {
+  opacity: 1;
+}
+
+/* ── Project number ── */
+.pcard__number {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8b8aa8;
+  margin: 0 0 1rem;
+}
+
+/* ── Title ── */
+.pcard__title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f0eeff;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+.pcard__title-accent {
+  color: #a78bfa;
+}
+
+/* ── Type badge ── */
+.pcard__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.badge--cyan {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+.badge--purple {
+  background: rgba(108, 99, 255, 0.1);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  color: #6c63ff;
+}
+
+/* ── Description ── */
+.pcard__desc {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: #c4c3d9;
+  margin: 0 0 1.5rem;
+}
+
+/* ── Stats ── */
+.pcard__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pcard__stat {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.pcard__stat-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #a78bfa;
+  line-height: 1;
+}
+
+.pcard__stat-label {
+  font-size: 0.72rem;
+  color: #7c7a9a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Features ── */
+.pcard__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pcard__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #c4c3d9;
+  line-height: 1.55;
+}
+
+.pcard__check {
+  color: #a78bfa;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Tech stack ── */
+.pcard__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.pcard__tech-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  color: #c4c3d9;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.pcard__tech-badge:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+/* ── Testimonial ── */
+.pcard__testimonial {
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.pcard__testimonial-quote {
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #9998b8;
+  margin: 0 0 0.9rem;
+}
+
+.pcard__testimonial-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pcard__testimonial-client {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f0eeff;
+}
+
+.pcard__testimonial-role {
+  display: block;
+  font-size: 0.75rem;
+  color: #7c7a9a;
+  margin-top: 0.1rem;
+}
+
+.pcard__testimonial-stars {
+  font-size: 0.82rem;
+  color: #fbbf24;
+  white-space: nowrap;
+}
+
+/* ── View Project link ── */
+.pcard__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #a78bfa;
+  text-decoration: none;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  transition: gap 0.2s ease, opacity 0.2s ease;
+}
+
+.pcard__link:hover {
+  gap: 0.55rem;
+  opacity: 0.8;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .portfolio {
+    padding: 4rem 1.25rem;
+  }
+
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio__heading {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pcard__stats {
+    grid-template-columns: 1fr;
+  }
+}
